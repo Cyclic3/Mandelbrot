@@ -1,4 +1,4 @@
-﻿<Properties StartupConfiguration="{B07652C3-DC6A-4074-A5AF-5991274C843D}|Default">
+﻿<Properties StartupConfiguration="{B07652C3-DC6A-4074-A5AF-5991274C843D}|Default" StartupItem="Mandelbrot.fsproj">
   <MonoDevelop.Ide.Workbench ActiveDocument="Program.fs">
     <Files>
       <File FileName="Program.fs" Line="145" Column="6" />
