@@ -1,0 +1,3 @@
+/home/harlan/Mandelbrot/Server/obj/x86/Release/.NETFramework,Version=v4.0.AssemblyAttribute.fs
+/home/harlan/Mandelbrot/Server/bin/Release/Server.exe
+/home/harlan/Mandelbrot/Server/obj/x86/Release/Server.exe
