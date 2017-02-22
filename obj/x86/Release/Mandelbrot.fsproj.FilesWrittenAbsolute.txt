@@ -1,3 +1,11 @@
 /home/harlan/Mandelbrot/obj/x86/Release/.NETFramework,Version=v4.5.AssemblyAttribute.fs
 /home/harlan/Mandelbrot/bin/Release/Mandelbrot.exe
 /home/harlan/Mandelbrot/obj/x86/Release/Mandelbrot.exe
+/opt/Mandelbrot/obj/x86/Release/.NETFramework,Version=v4.5.AssemblyAttribute.fs
+/opt/Mandelbrot/bin/Release/Mandelbrot.exe
+/opt/Mandelbrot/obj/x86/Release/Mandelbrot.exe
+/opt/Mandelbrot/bin/Release/FSCL.Compiler.Core.dll
+/opt/Mandelbrot/bin/Release/FSCL.Compiler.Language.dll
+/opt/Mandelbrot/bin/Release/FSCL.Compiler.NativeComponents.dll
+/opt/Mandelbrot/bin/Release/FSCL.Compiler.Util.dll
+/opt/Mandelbrot/bin/Release/FSCL.Compiler.dll

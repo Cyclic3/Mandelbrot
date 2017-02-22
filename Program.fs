@@ -1,34 +1,26 @@
 ﻿open Microsoft.FSharp.NativeInterop
 open System.Numerics
+open FSCL.Compiler
+open FSCL.Language
 #nowarn "9"
-type InfiniteSequence<'T>(f:'T -> uint64 -> 'T,init:'T) = 
-    let mutable i = 0uL
-    let mutable acc = init
-    interface System.Collections.Generic.IEnumerable<'T> with
-        member x.GetEnumerator() = 
-            {
-                new System.Collections.Generic.IEnumerator<'T> with 
-                    member x.Current with get() = acc:'T
-                    member x.Current = acc :> obj
-                    member x.Dispose() = ()
-                    member x.Reset() = i<-0uL;acc<-init
-                    member x.MoveNext() = acc <- f acc i; i <- i+1uL; true
-            }
-        member x.GetEnumerator() = 
-            {
-                new System.Collections.IEnumerator with 
-                    member x.Current = acc :> obj
-                    member x.Reset() = i<-0uL;acc<-init
-                    member x.MoveNext() = acc <- f acc i; i <- i+1uL; true
-            }
-    member x.Current = acc
-    member x.GetNext() = 
-        acc <- f acc i; 
-        i <- i+1uL;
-        acc
+let real i = Complex(i, 0.)
+let imaginary i = Complex(0., i)
+[<ReflectedDefinition;Kernel>]
+let iter (n : Complex[], c : Complex[], wi : WorkItemInfo) = 
+    let gid = wi.GlobalID(0)
+    let x = n.[gid]
+    let mag = x.Magnitude
+    let ans = (mag = infinity || mag <> mag) |> not
+    let c = c.[gid]
+    n.[gid] <- (if ans then (x*x) + c else real infinity)
+let do_iter(n : Complex[], c : Complex[]) =
+    let ws = new WorkSize(1024L, 64L)
+    let compiler = new Compiler()
+    let compResult = compiler.Compile(<@ iter(n, c, ws) @>)
+    ()
 [<EntryPoint>]
 let main _ = 
-    let startx,starty =
+    let startx,starty = 
         printf "startx, starty: "
         System.Console.ReadLine()
         |> (fun s -> s.Replace(" ","").Split(','))
@@ -52,9 +44,6 @@ let main _ =
     let y = height / res |> int
     let size = int64 x * int64 y
 
-    let real i = Complex(i, 0.)
-    let imaginary i = Complex(0., i)
-
     let seed = real 0.
     let n_bad = ref 0L
     let isGood (n:Complex) = 
@@ -62,11 +51,6 @@ let main _ =
         let ans = (mag = infinity || mag <> mag) |> not
         if not ans then System.Threading.Interlocked.Increment(n_bad) |> ignore
         ans
-    let orbitfunc c = 
-        InfiniteSequence<_>(
-            (fun x _ -> if isGood x then (x*x) + c else real infinity),
-            seed
-        )
     let mandelbrot res (startx,finishx) (starty,finishy) = 
         let x' = Array.Parallel.init x (fun i -> (float i * res + startx))
         let y' = Array.Parallel.init y (fun i -> (float i * res + starty))
@@ -80,13 +64,10 @@ let main _ =
                         printfn "\t%i%% complete" ((size - !mouse) / (size/100L))
             } |> Async.StartAsTask
         Array.Parallel.map(fun i -> 
-            Array.Parallel.map (fun j ->
-                System.Threading.Interlocked.Decrement(cat)|>ignore
-                Complex(i,j)|>orbitfunc
-            ) y'
+            do_iter y' 
         ) x'
         |> fun i -> t.Wait();i
-    let iter_all f v = Array.map(Array.map(fun (i:InfiniteSequence<_>) -> i.GetNext()|>f)) v
+    let iter_all f v = Array.Parallel.map(fun (i:InfiniteSequence<_>) -> i.GetNext()|>f) v
     printf "Creating bitmap array..."
     let bm = new System.Drawing.Bitmap(x,y)
     printfn "Done"

@@ -35,23 +35,26 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Mono.Cairo" />
-    <Reference Include="gtk-sharp, Version=3.0.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
-      <Package>gtk-sharp-3.0</Package>
+    <Reference Include="gtk-sharp, Version=3.0.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="atk-sharp, Version=3.0.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="gio-sharp, Version=3.0.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="glib-sharp, Version=3.0.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="gdk-sharp, Version=3.0.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="cairo-sharp, Version=1.10.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
+    <Reference Include="FSCL.Compiler.Core">
+      <HintPath>packages\FSCL.Compiler.2.0.1\lib\net45\FSCL.Compiler.Core.dll</HintPath>
     </Reference>
-    <Reference Include="atk-sharp, Version=3.0.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
-      <Package>gtk-sharp-3.0</Package>
+    <Reference Include="FSCL.Compiler.Language">
+      <HintPath>packages\FSCL.Compiler.2.0.1\lib\net45\FSCL.Compiler.Language.dll</HintPath>
     </Reference>
-    <Reference Include="gio-sharp, Version=3.0.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
-      <Package>gio-sharp-3.0</Package>
+    <Reference Include="FSCL.Compiler.NativeComponents">
+      <HintPath>packages\FSCL.Compiler.2.0.1\lib\net45\FSCL.Compiler.NativeComponents.dll</HintPath>
     </Reference>
-    <Reference Include="glib-sharp, Version=3.0.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
-      <Package>glib-sharp-3.0</Package>
+    <Reference Include="FSCL.Compiler.Util">
+      <HintPath>packages\FSCL.Compiler.2.0.1\lib\net45\FSCL.Compiler.Util.dll</HintPath>
     </Reference>
-    <Reference Include="gdk-sharp, Version=3.0.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
-      <Package>gdk-sharp-3.0</Package>
-    </Reference>
-    <Reference Include="cairo-sharp, Version=1.10.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
-      <Package>gtk-sharp-3.0</Package>
+    <Reference Include="FSCL.Compiler">
+      <HintPath>packages\FSCL.Compiler.2.0.1\lib\net45\FSCL.Compiler.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -62,5 +65,6 @@
   <ItemGroup>
     <None Include="EmptyStruct.fsx" />
     <None Include="Program %28copy%29.fs" />
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
