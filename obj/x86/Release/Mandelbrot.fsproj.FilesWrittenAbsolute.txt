@@ -9,3 +9,8 @@
 /opt/Mandelbrot/bin/Release/FSCL.Compiler.NativeComponents.dll
 /opt/Mandelbrot/bin/Release/FSCL.Compiler.Util.dll
 /opt/Mandelbrot/bin/Release/FSCL.Compiler.dll
+/home/harlan/Mandelbrot/bin/Release/FSCL.Compiler.Core.dll
+/home/harlan/Mandelbrot/bin/Release/FSCL.Compiler.Language.dll
+/home/harlan/Mandelbrot/bin/Release/FSCL.Compiler.NativeComponents.dll
+/home/harlan/Mandelbrot/bin/Release/FSCL.Compiler.Util.dll
+/home/harlan/Mandelbrot/bin/Release/FSCL.Compiler.dll

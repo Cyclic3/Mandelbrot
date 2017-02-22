@@ -1,0 +1,5 @@
+/home/harlan/Mandelbrot/Server/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.fs
+/home/harlan/Mandelbrot/Server/bin/Debug/Server.exe.mdb
+/home/harlan/Mandelbrot/Server/bin/Debug/Server.exe
+/home/harlan/Mandelbrot/Server/obj/x86/Debug/Server.exe
+/home/harlan/Mandelbrot/Server/obj/x86/Debug/Server.exe.mdb

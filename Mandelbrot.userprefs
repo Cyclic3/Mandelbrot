@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{B07652C3-DC6A-4074-A5AF-5991274C843D}|Default" StartupItem="Mandelbrot.fsproj">
   <MonoDevelop.Ide.Workbench ActiveDocument="Program.fs">
     <Files>
-      <File FileName="Program.fs" Line="140" Column="5" />
+      <File FileName="Program.fs" Line="25" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/home/harlan/Projects/Mandelbrot/EmptyStruct.fsx" line="46" column="1" />
